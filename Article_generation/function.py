@@ -6,7 +6,7 @@ import google.generativeai as genai
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
-MODEL = genai.GenerativeModel("gemini-pro")
+MODEL = genai.GenerativeModel("models/gemini-2.5-flash")
 
 
 #Your system & article prompt (UNTOUCHED)
