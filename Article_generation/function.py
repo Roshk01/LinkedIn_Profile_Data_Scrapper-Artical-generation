@@ -3,7 +3,7 @@ import google.generativeai as genai
 import os
 
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")  # supply via Streamlit Secrets -> env in app
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]  # supply via Streamlit Secrets -> env in app
 
 _SYSTEM_STYLE = (
     "You are an expert technical writer for software engineers. "
