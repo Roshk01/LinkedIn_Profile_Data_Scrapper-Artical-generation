@@ -9,19 +9,11 @@ APIFY_TOKEN = os.getenv("APIFY_TOKEN")
 
 ACTOR_ID = "AgfKk0sQQxkpQJ1Dt"
 
-def scrape_linkedin_profiles(profiles_list):
-    client = ApifyClient(APIFY_TOKEN)
-    # set the parameters for actor run
-    run_input = {
-        "startUrls": [{"url": p.strip()} for p in profiles_list if p.strip()],
-    }
-    # run the actor
-    response = client.actor(ACTOR_ID).call(run_input=run_input)
-
-    dataset_id = response["defaultDatasetId"]
-    items = list(client.dataset(dataset_id).iterate_items())
-
-    return items
+def scrape_linkedin_profiles(profiles_list, apify_token, actor_id):
+    client = ApifyClient(apify_token)
+    run = client.actor(actor_id).call(run_input={"startUrls": [{"url": p} for p in profiles_list]})
+    dataset_id = run["defaultDatasetId"]
+    return list(client.dataset(dataset_id).iterate_items())
 
 if __name__ == "__main__":
     # load URLs from file
@@ -39,3 +31,4 @@ if __name__ == "__main__":
         print(df.head())   # show sample rows
     else:
         print("No data returned.")
+
