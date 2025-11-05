@@ -6,8 +6,7 @@ import tqdm
 
 load_dotenv()
 APIFY_TOKEN = os.getenv("APIFY_TOKEN")
-
-ACTOR_ID = "AgfKk0sQQxkpQJ1Dt"
+ACTOR_ID = os.getenv("ACTOR_ID")
 
 def scrape_linkedin_profiles(profiles_list, apify_token, actor_id):
     client = ApifyClient(apify_token)
@@ -31,4 +30,5 @@ if __name__ == "__main__":
         print(df.head())   # show sample rows
     else:
         print("No data returned.")
+
 
