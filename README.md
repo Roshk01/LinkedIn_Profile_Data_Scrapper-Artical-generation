@@ -112,7 +112,3 @@ Example modules:
 ## License
 
 This project is for educational and demonstration purposes only. Use responsibly and comply with all platform terms.
-
----
-
-If you'd like, I can tailor it further to match your exact folder names.
