@@ -94,10 +94,6 @@ if st.button("Generate Articles"):
                     mime="text/markdown",
                 )
 
-        # --------- Optional: quick first preview ----------
-        with st.expander(" Quick Preview of First Article"):
-            st.markdown(df.iloc[0]["markdown"])
-
 
     except Exception as e:
         st.error(f" Error: {e}")
